@@ -3,7 +3,9 @@
 
 #include <unordered_map>
 #include <vector>
-using edges = std::vector< std::pair<int, float> >;
+
+#define NUM_VERTEX 101
+using edges = std::vector< std::pair<int, double> >;
 
 class Component {
     public:
@@ -16,20 +18,25 @@ class Component {
 
         Component();
 
+        // copy constructor
+        Component(const Component &comp);
+
+        //~Component();
+
         // returns a vector with all the centers in a component
         std::vector<int> center();
 
 		// performs depth first search; helper function
-		void dfs(float distance[], int v);
+		void dfs(double distance[], int v);
 
         // returns the diameter of the component
-        float diameter();
+        double diameter();
 
         // returns the eccentricity of a vertex
-        float eccentricity(int v);
+        double eccentricity(int v);
 
         // returns the radius of the component
-        float radius();
+        double radius();
 };
 
 #endif

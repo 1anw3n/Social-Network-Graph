@@ -6,8 +6,8 @@
 
 class GraphGenerator {
     public:
-        GraphGenerator(std::fstream &file, Graph &g);
-        void addEdge(Graph &g, int u, int v, float w);
+        GraphGenerator(std::ifstream &file, Graph &g);
+        void addEdge(Graph &g, int u, int v, double w);
 };
 
 #endif

@@ -1,13 +1,14 @@
 #include <string>
 #include "graphGenerator.h"
 
-GraphGenerator::GraphGenerator(std::fstream &file, Graph &g) {
+GraphGenerator::GraphGenerator(std::ifstream &file, Graph &g) {
     int n1, n2, u, v, len;
-    float weight;
+    double weight;
     std::string s;
     
     while (!file.eof()) {
         std::getline(file, s);
+        if (s.empty()) break;
         n1 = s.find(",");
         n2 = s.rfind(",");
         len = s.length();
@@ -20,7 +21,7 @@ GraphGenerator::GraphGenerator(std::fstream &file, Graph &g) {
     g.checkComponent();
 }
 
-void GraphGenerator::addEdge(Graph &g, int u, int v, float w) {
-    g.adjList[u].push_back(std::make_pair(v, w));
-    g.adjList[v].push_back(std::make_pair(u, w));
+void GraphGenerator::addEdge(Graph &g, int u, int v, double w) {
+    g.adjList.at(u).push_back(std::make_pair(v, w));
+    g.adjList.at(v).push_back(std::make_pair(u, w));
 }
