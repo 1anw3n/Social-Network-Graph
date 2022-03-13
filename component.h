@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <vector>
 
-#define NUM_VERTEX 101
+#define NUM_VERTEX 11
 using edges = std::vector< std::pair<int, double> >;
 
 class Component {
@@ -16,18 +16,13 @@ class Component {
         std::unordered_map<int, edges> c;
 
 
-        Component();
+        Component() = default;
 
         // copy constructor
         Component(const Component &comp);
 
-        //~Component();
-
         // returns a vector with all the centers in a component
         std::vector<int> center();
-
-		// performs depth first search; helper function
-		void dfs(double distance[], int v);
 
         // returns the diameter of the component
         double diameter();
@@ -37,6 +32,12 @@ class Component {
 
         // returns the radius of the component
         double radius();
+
+        int combination(int n);
+
+        int openTriangles();
+        
+        int closedTriangles();
 };
 
 #endif
