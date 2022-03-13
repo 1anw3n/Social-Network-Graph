@@ -73,22 +73,23 @@ int main(int argc, char* argv[]) {
     cout << setprecision(2) << go.FindAverageDegree() << endl;
     cout << "The vertex with the highest degree:" << endl;
     auto v = go.FindHighestDegree();
-    for (auto i : v) {cout << i << endl;}
+    for (size_t i = 0; i < v.size(); i++) {
+        if (i != 0) cout << ", ";
+        cout << v.at(i);
+    }
+    cout << endl;
     cout << "The number of connected components:" << endl;
     cout << go.FindConnectedNumber() << endl;
     cout << "The diameter, radius, and center(s) of each components" << endl;
-    for(size_t i = 0; i < g.cp.size(); i++) {
-        go.FindConnectedParameter(g.cp[i]);
-        cout << endl;
-    }
+    go.FindConnectedParameter();
     cout << "The ratio between the number of open and closed triangles:" << endl;
     cout << fixed << showpoint;
     cout << setprecision(4) << go.FindTrianglesRatio() << endl;
     cout << "The closest node:" << endl;
-    cout << go.FindClosestNode(3, 0.5, 7) << endl;
+    cout << go.FindClosestNode(39, 0.5, 7) << endl;
     cout << "A closest with highest interest:" << endl; //fix
     cout << go.FindHighestInterest(7) << endl;
-    cout << "The pair of nodes x and y" << endl;
+    cout << "The pair of nodes x and y:" << endl;
     go.FindDistanceRatio();
     
     eifs.close();

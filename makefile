@@ -20,12 +20,12 @@ graphOperator.o: graphOperator.cpp graphOperator.h
 main.o: main.cpp
 	g++ $(CXXFLAGS) -c main.cpp -o main.o
 
-#run:
-	#./PA2 PA2_input/edges.txt PA2_input/hobbies.txt
-
 run:
-	./PA2 test/edges.txt test/hobbies.txt
+	./PA2 PA2_input/edges.txt PA2_input/hobbies.txt
+
+#run:
+	#./PA2 test/edges.txt test/hobbies.txt
 
 .PHONY: clean
 clean:
-	rm *.o main PA2
+	rm *.o PA2

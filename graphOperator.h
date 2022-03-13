@@ -20,7 +20,7 @@ class GraphOperator{
         //Find the number of connected components
         int FindConnectedNumber();
         //Find the diameter, radius, and centers of each component.
-        void FindConnectedParameter(Component c);
+        void FindConnectedParameter();
         //Find the ratio between the number of open and closed triangles
         double FindTrianglesRatio();
         //Find the closest node from x with an interest level of 

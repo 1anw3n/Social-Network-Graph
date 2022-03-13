@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cmath>
 #include <functional>
 #include <iterator>
 #include <limits>
@@ -27,7 +28,7 @@ std::vector<int> Component::center() {
     
     std::vector<int> out;
     for (auto p : minEccen) {
-        if (p.second == radius) out.push_back(p.first);
+        if (std::abs(p.second - radius) < 0.001) out.push_back(p.first);
     }
     std::sort(out.begin(), out.end());
 	return out;
